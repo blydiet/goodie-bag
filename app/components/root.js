@@ -1,16 +1,28 @@
 import React from 'react'
+import { Candies } from './AllCandies'
+import { HashRouter, Route, Link, Switch } from 'react-router-dom'
+
 
 const Root = () => {
   return (
     <div>
+
       <nav>
-        Goodie Bag
+        <HashRouter>
+          <Link to="/candies">Candies</Link>
+        </HashRouter>
       </nav>
+
       <main>
         <h1>Welcome to the Goodie Bag!</h1>
-        <p>What a nice home page for your goodies!</p>
+        <HashRouter>
+          <Switch>
+            <Route exact path="/candies" component={Candies} />
+            <Route exact path="/" component={Candies} />
+          </Switch>
+        </HashRouter>
       </main>
-    </div>
+    </div >
   )
 }
 
